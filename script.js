@@ -1,30 +1,22 @@
 (function () {
     'use strict';
-
-    var money = +prompt("Какой бюджет на месяц?", 0);
-    var time = prompt("Введите дату в формате YYYY-MM-DD", "");
-
-    var optionalExpenses = {};
-
+    var money = +prompt("Какой бюджет на месяц?", ''),
+        time = prompt("Введите дату в формате YYYY-MM-DD", '');
     var appData = {
-        addMoney: money,
+        budget: money,
         timeData: time,
-        expenses: [],
-        optionalExpenses: 0,
+        expenses: {},
+        optionalExpenses: {},
         income: [],
         saving: false
     };
+    let a1 = prompt("Введите обязательную статью расходов в этом месяце", ''),
+        a2 = prompt("Во сколько обойдется?", ''),
+        a3 = prompt("Введите обязательную статью расходов в этом месяце", ''),
+        a4 = prompt("Во сколько обойдется?", '');
+    appData.expenses.a1 = a2;
+    appData.expenses.a3 = a4;
 
+    alert(appData.budget/30);
     console.log(appData);
-
-    let inputData1 = prompt("Введите обязательную статью расходов в этом месяце", "");
-    let inputData2 = +prompt("Во сколько обойдется?", 0);
-    appData.addMoney = appData.addMoney - inputData2;
-    appData.expenses.push(inputData1 + " : " + inputData2);
-    inputData1 = prompt("Введите обязательную статью расходов в этом месяце", "");
-    inputData2 = +prompt("Во сколько обойдется?", 0);
-    appData.addMoney = appData.addMoney - inputData2;
-    appData.expenses.push(inputData1 + " : " + inputData2);
-
-    alert("Ваш бюджет на 1 день составляет: " + appData.addMoney/30 + " $");
 }());
